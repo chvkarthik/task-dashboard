@@ -1,0 +1,105 @@
+<div class="d-flex align-items-center justify-content-between">
+    <div class="brand-color fw-bold">Transaction History</div>
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center inputForm2">
+        <i class="fa-solid fa-magnifying-glass pe-1"></i>
+        <input (input)="search($event)"
+          class="w-100 text-grey-400"
+          type="search"
+          placeholder="Search"
+        />
+      </div>
+      <button class="button-transactions p-2 px-3 rounded-2 border bg-white">
+        <span><i class="fa-solid fa-filter pe-1 text-grey-400"></i></span>
+        <span class="text-grey-500 fs-6 fw-bold">Filter</span>
+      </button>
+      <button class="button-transactions p-2 px-3 rounded-2 border bg-white">
+        <span
+          ><i class="fa-solid fa-file-arrow-down pe-1 text-grey-400"></i
+        ></span>
+        <span class="text-grey-500 fs-6 fw-bold">Export</span>
+      </button>
+    </div>
+  </div>
+  <table class="table w-100 border-bottom my-2 pb-5 mb-5">
+    <thead>
+      <tr>
+          <th>
+            <div class="d-flex align-items-center">
+              <div>Date</div>
+              <div class="d-flex flex-column align-items-center justify-content-center ps-2">
+                  <i class="fa-solid fa-angle-up fa-2xs mb-2"></i>
+                  <i class="fa-solid fa-angle-down fa-2xs"></i>
+              </div>
+            </div>          
+          </th>
+          <th>
+              <div class="d-flex align-items-center">
+                  <div>Name</div>
+                  <div class="d-flex flex-column align-items-center justify-content-center ps-2">
+                      <i class="fa-solid fa-angle-up fa-2xs mb-2"></i>
+                      <i class="fa-solid fa-angle-down fa-2xs"></i>
+                  </div>
+              </div>  
+          </th>
+          <th>
+              <div class="d-flex align-items-center">
+                  <div>Status</div>
+                  <div class="d-flex flex-column align-items-center justify-content-center ps-2">
+                      <i class="fa-solid fa-angle-up fa-2xs mb-2"></i>
+                      <i class="fa-solid fa-angle-down fa-2xs"></i>
+                  </div>
+              </div>  
+          </th>
+          <th>
+              <div class="d-flex align-items-center">
+                  <div>Type</div>
+                  <div class="d-flex flex-column align-items-center justify-content-center ps-2">
+                      <i class="fa-solid fa-angle-up fa-2xs mb-2"></i>
+                      <i class="fa-solid fa-angle-down fa-2xs"></i>
+                  </div>
+              </div>  
+          </th>
+          <th>
+              <div class="d-flex align-items-center">
+                  <div>Time</div>
+                  <div class="d-flex flex-column align-items-center justify-content-center ps-2">
+                      <i class="fa-solid fa-angle-up fa-2xs mb-2"></i>
+                      <i class="fa-solid fa-angle-down fa-2xs"></i>
+                  </div>
+              </div>  
+          </th>
+          <th>
+              <div class="d-flex align-items-center">
+                  <div>Amount</div>
+                  <div class="d-flex flex-column align-items-center justify-content-center ps-2">
+                      <i class="fa-solid fa-angle-up fa-2xs mb-2"></i>
+                      <i class="fa-solid fa-angle-down fa-2xs"></i>
+                  </div>
+              </div>  
+          </th>
+          <th>Action</th>
+        </tr>
+    </thead>
+    <tr class="border-bottom" *ngFor="let data of displayData; let i=index;">
+      <td class="fw-bold">{{data.date | date}}</td>
+      <td class="fw-bold">
+          <span class="rounded-pill p-2 me-1 text-white" [ngStyle]="{'background-color': bgColor[i%5]}">{{data.name.substring(0,2).toUpperCase()}}</span>{{data.name}}
+      </td>
+      <td>
+          <span class="badge-success" *ngIf="data.status==='Success'">{{data.status}}</span>
+          <span class="badge-danger" *ngIf="data.status==='Failed'">{{data.status}}</span>
+          <span class="badge-warning" *ngIf="data.status==='Pending'">{{data.status}}</span>
+      </td>
+      <td>{{data.type}}</td>
+      <td class="text-end">{{data.date | date: 'HH:mm a':'+0530'}}</td>
+      <td class="fw-bold">${{data.amount | number:'1.2-2'}}</td>
+      <td class="fw-bold">
+          <i (click)="openModal(#modalData)" class="fa-solid fa-ellipsis"></i>
+      </td>
+    </tr>
+  </table>
+
+  <ng-template #modalData>
+    <app-custom-modal></app-custom-modal>
+  </ng-template>

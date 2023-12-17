@@ -1,0 +1,23 @@
+<div class="w-100">
+  <div class="bg-white rounded-3 p-3">
+    <h3 class="brand-color mt-0">Total Balance</h3>
+    <div class="fs-2 brand-color fw-bold mb-2">${{apiData?.balance?.total_balance | number: '1.2-2'}}</div>
+    <app-progress-bar [width]="width"></app-progress-bar>
+    <div class="d-flex align-items-center fs-7 justify-content-between mt-1">
+      <div class="text-grey-200">Monthly payment limit</div>
+      <div>
+        <span class="brand-color fw-bold">${{apiData?.balance?.payment_done_so_far | number: '1.2-2'}}</span
+        ><span class="text-grey-200">/${{apiData?.balance?.monthly_payment_limit | number: '1.2-2'}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="bg-white mt-2 p-3 rounded-3">
+    <app-money-statistics></app-money-statistics>
+  </div>
+  <div class="bg-white mt-2 p-3 rounded-3">
+    <app-transactions-history></app-transactions-history>
+  </div>
+  <div class="bg-white mt-2 p-3 rounded-3">
+    
+  </div>
+</div>

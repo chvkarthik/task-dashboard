@@ -1,0 +1,53 @@
+<div class="d-flex align-items-center justify-content-between">
+    <div class="brand-color fw-bold">Money Statistics</div>
+    <div>
+      <span class="me-2">
+        <select class="border p-1 brand-color fs-7 fw-bold">
+          <option default>Monthly</option>
+          <option>Weekly</option>
+        </select>
+      </span>
+      <i class="fa-solid fa-ellipsis" style="color: #b9bfcb"></i>
+    </div>
+  </div>
+  <div class="d-flex align-items-center justify-content-between mt-4">
+    <div>
+      <div class="fw-bold text-grey-400 fs-6">Total Income</div>
+      <h2 class="brand-color my-1 mt-2">${{apiData?.money_statistics?.total_income?.value | number: '1.2-2'}}</h2>
+      <div>
+        <span class="fs-7">
+          <i class="fa-solid fa-arrow-trend-up fa-xs" [ngClass]="'trend-color-'+apiData?.money_statistics?.total_income?.trend_color"></i>
+          <span class="px-1" [ngClass]="'trend-color-'+apiData?.money_statistics?.total_income?.trend_color">+{{apiData?.money_statistics?.total_income?.trend}}%</span>
+          <span class="text-grey-200">from last month</span>
+        </span>
+      </div>
+    </div>
+    <div class="vertical-divider"></div>
+    <div>
+      <div class="fw-bold text-grey-400 fs-6">Total Expense</div>
+      <h2 class="brand-color my-1 mt-2">${{apiData?.money_statistics?.total_expense?.value | number: '1.2-2'}}</h2>
+      <div>
+        <span class="fs-7">
+          <i class="fa-solid fa-arrow-trend-up fa-xs" [ngClass]="'trend-color-'+apiData?.money_statistics?.total_expense?.trend_color"></i>
+          <span class="px-1" [ngClass]="'trend-color-'+apiData?.money_statistics?.total_expense?.trend_color">+{{apiData?.money_statistics?.total_expense?.trend}}%</span>
+          <span class="text-grey-200">from last month</span>
+        </span>
+      </div>
+    </div>
+    <div class="vertical-divider"></div>
+    <div>
+      <div class="fw-bold text-grey-400 fs-6">Total Investment</div>
+      <h2 class="brand-color my-1 mt-2">${{apiData?.money_statistics?.total_investment?.value | number: '1.2-2'}}</h2>
+      <div>
+        <span class="fs-7">
+          <i class="fa-solid fa-arrow-trend-up fa-xs" [ngClass]="'trend-color-'+apiData?.money_statistics?.total_investment?.trend_color"></i>
+          <span class="px-1" [ngClass]="'trend-color-'+apiData?.money_statistics?.total_investment?.trend_color">+{{apiData?.money_statistics?.total_investment?.trend}}%</span>
+          <span class="text-grey-200">from last month</span>
+        </span>
+      </div>
+    </div>
+    
+  </div>
+  <div>
+      <ag-charts-angular [options]="options"></ag-charts-angular>    
+  </div>
