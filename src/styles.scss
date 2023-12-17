@@ -579,6 +579,7 @@ body{
   padding-right: 1rem;
   border-radius: 8px;
   width: 40%;
+  outline: none;
 }
 .cursor-pointer,
 [role="button"] {
@@ -592,6 +593,8 @@ body{
   border-radius: 8px;
   border: 1px solid #e1e4e7;
   width: 40%;
+  outline: none;
+  
 }
 input[type="search"]{
   border: 0px;

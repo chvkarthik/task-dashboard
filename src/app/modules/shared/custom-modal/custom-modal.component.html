@@ -1,6 +1,19 @@
-<div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+<div id="myModal" class="modal-overlay">
+    <div class="modal position-relative w-25">
+      <span class="close cursor-pointer position-absolute " (click)="closeModal()">x</span>
+      <div class="p-4 px-3">
+        <div class="mb-3">
+          <label class="mb-3">Name</label>
+          <div class="w-100">
+            <input class="inputForm w-75 border-0 p-3" type="text" [(ngModel)]="data.name" disabled>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="mb-3">Type</label>
+          <div class="w-100">
+            <input class="inputForm w-75 border-0 p-3" type="text" [(ngModel)]="data.type" disabled>
+          </div>
+        </div>
+      </div>
     </div>
 </div>

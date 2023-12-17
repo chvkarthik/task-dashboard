@@ -14,7 +14,6 @@ export class DataService{
     apiDataSubject$ = this.apiDataSubject.asObservable();
 
     getResponseData(){
-        console.log(this.http)
         return this.http.get(`${this.apiUrl}`);   
     }
 

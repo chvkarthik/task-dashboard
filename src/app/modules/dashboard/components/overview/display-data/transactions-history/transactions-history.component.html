@@ -95,11 +95,7 @@
       <td class="text-end">{{data.date | date: 'HH:mm a':'+0530'}}</td>
       <td class="fw-bold">${{data.amount | number:'1.2-2'}}</td>
       <td class="fw-bold">
-          <i (click)="openModal(#modalData)" class="fa-solid fa-ellipsis"></i>
+          <i (click)="openModal(data)" class="fa-solid fa-ellipsis cursor-pointer"></i>
       </td>
     </tr>
   </table>
-
-  <ng-template #modalData>
-    <app-custom-modal></app-custom-modal>
-  </ng-template>

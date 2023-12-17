@@ -7,4 +7,14 @@ import { Component, ViewContainerRef, inject } from '@angular/core';
 })
 export class CustomModalComponent {
   vcr = inject(ViewContainerRef);
+  data:any={
+    name: '',
+    type: ''
+  };
+
+  ngOnInit(){}
+
+  closeModal(){
+    this.vcr.element.nativeElement.style.display = 'none';
+  }
 }
